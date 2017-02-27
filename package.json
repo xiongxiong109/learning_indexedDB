@@ -1,0 +1,31 @@
+{
+  "name": "lidb",
+  "version": "1.0.0",
+  "description": "learning_indexedDB",
+  "main": "webpack.config.js",
+  "dependencies": {
+    "babel": "^6.23.0",
+    "babel-core": "^6.23.1",
+    "babel-loader": "^6.3.2",
+    "babel-preset-es2015": "^6.22.0",
+    "webpack": "^2.2.1",
+    "webpack-dev-server": "^2.4.1"
+  },
+  "devDependencies": {
+    "axios": "^0.15.3",
+    "mockjs": "^1.0.1-beta3"
+  },
+  "scripts": {
+    "start": "webpack-dev-server --inline --hot --color"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xiongxiong109/learning_indexedDB.git"
+  },
+  "author": "xiong",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xiongxiong109/learning_indexedDB/issues"
+  },
+  "homepage": "https://github.com/xiongxiong109/learning_indexedDB#readme"
+}

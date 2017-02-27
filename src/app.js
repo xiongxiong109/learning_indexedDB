@@ -1,6 +1,8 @@
 // indexeddb
 // 打开或创建本地数据库
 import DB_CONF from './conf/db.js';
+import './mock';
+import axios from 'axios';
 
 // 这个方法可能会存在兼容性的写法
 const DB = window.indexedDB;
@@ -59,3 +61,14 @@ function initDataBase(db) {
 function doDb(db) {
 	// console.log(db.objectStore);
 }
+
+// use axios to do ajax
+axios.post('/apis/list', {
+	userName: 'xiongxiong109'
+})
+.then(res => {
+	console.log(res.data);
+})
+.catch(e => {
+	console.log(e);
+})
