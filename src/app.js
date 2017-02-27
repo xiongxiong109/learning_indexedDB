@@ -29,7 +29,14 @@ class App extends Component {
 							data.arts.forEach((item, idx) => {
 								arr.push(
 									<li key={idx}>
-										<h5>{item.title}</h5>
+										<h5>
+											{item.title}
+											{(() => {
+												if(item.isRead) {
+													return <span style={styles.tip}>yes</span>
+												}
+											})()}
+										</h5>
 										<p>{item.content}</p>
 									</li>
 								);
@@ -63,5 +70,11 @@ class App extends Component {
 	}
 }
 
+const styles = {
+	tip: {
+		'color': '#cd0000',
+		'marginLeft': '10px'
+	}
+};
 
 ReactDOM.render(<App/>, document.querySelector('#app'));

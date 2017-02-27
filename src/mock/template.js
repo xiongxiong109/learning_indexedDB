@@ -18,8 +18,9 @@ export const listTemplate = {
 		'arts|5-8': [
 			{
 				'id': Random.integer(2, 5),
-				'title': Random.string(3, 5),
-				'content': Random.paragraph(8, 15)
+				'title': '@articleTitle',
+				'content': '@articleContent',
+				'isRead|1': true 
 			}
 		]
 	}

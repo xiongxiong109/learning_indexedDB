@@ -25,5 +25,12 @@ Random.extend({
 	},
 	useTime() {
 		return Random.date('yyyy-MM-dd HH:mm:ss')
+	},
+	// 通过调用函数的方式, 可以在数组循环的时候返回不同的数据
+	articleTitle() {
+		return Random.string(3, 5);
+	},
+	articleContent() {
+		return Random.paragraph(8, 15);
 	}
 });
