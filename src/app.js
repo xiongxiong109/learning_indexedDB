@@ -10,6 +10,47 @@ const AppTitle = ({unm}) => (
 	<div className="title">{unm}</div>
 )
 
+// a stateless component, a react component must return a react element or null
+// but can not return undefined、array or any other invalid object
+// so if you execute a loop function in the render method of the react component
+// you can't just return the loop array list, but should push the array list notes in an element
+// example as follows
+const ListItems = ({list}) => {
+	let notes;
+	notes = list.map((item, idx) => {
+		return (
+			<li key={idx}>
+				<h5>{item.title}{
+					(() => {
+						if (item.isRead) {
+							return <span style={styles.tip}>yes</span>
+						}
+					})()
+				}</h5>
+				<p>{item.content}</p>
+			</li>
+		)
+	});
+	return (
+		<ul>{notes}</ul>
+	)
+}
+
+class List extends Component {
+	constructor(props) {
+		super(props)
+	}
+	render() {
+		let {list} = this.props;
+		console.log(list);
+		if (list && list.length) {
+			return <ListItems list={list}/>;
+		} else {
+			return null;
+		}
+	}
+}
+
 class App extends Component {
 	constructor(props) {
 		super(props);
@@ -22,29 +63,7 @@ class App extends Component {
 		return (
 			<div className="app-container">
 				<AppTitle {...data}/>
-				<ul>
-					{(() => {
-						if (data.arts) {
-							let arr = [];
-							data.arts.forEach((item, idx) => {
-								arr.push(
-									<li key={idx}>
-										<h5>
-											{item.title}
-											{(() => {
-												if(item.isRead) {
-													return <span style={styles.tip}>yes</span>
-												}
-											})()}
-										</h5>
-										<p>{item.content}</p>
-									</li>
-								);
-							})
-							return arr;
-						}
-					})()}
-				</ul>
+				<List list={this.state.data.arts}/>
 			</div>
 		)
 	}

@@ -8,7 +8,7 @@ export const listTemplate = {
 		'uid|8': '3',
 		'isV|1': true, // 随机生成true / false
 		'addr': '@first',
-		'email': '@etail',
+		'email': '@email',
 		'cid': '@cityId',
 		'cnm': '@cNm(@cityId)',
 		'age': '@age',
