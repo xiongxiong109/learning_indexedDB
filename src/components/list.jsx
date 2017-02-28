@@ -32,7 +32,7 @@ export class List extends Component {
 	}
 	render() {
 		let {list} = this.props;
-		console.log(list);
+		// console.log(list);
 		if (list && list.length) {
 			return <ListItems list={list}/>;
 		} else {
