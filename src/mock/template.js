@@ -17,7 +17,7 @@ export const listTemplate = {
 		'avatar': Random.image('200x200', '#c00', 'HelloWorld'),
 		'arts|5-8': [
 			{
-				'id': Random.integer(2, 5),
+				'id': '@uuid',
 				'title': '@articleTitle',
 				'content': '@articleContent',
 				'isRead|1': true 

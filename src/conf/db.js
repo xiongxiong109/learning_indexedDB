@@ -3,10 +3,10 @@ const DB_CONF = {
 	// 数据库名
 	nm: 'test_indexeddb',
 	// 数据表名
-	dbNm: 'test_xiong',
+	dbNm: 'articles',
 	// Value is not of type 'unsigned long long' version字段必须是 双精度长整型
 	// 数据库版本
-	version: 1
+	version: 2
 }
 
 export default DB_CONF;

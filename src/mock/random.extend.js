@@ -1,6 +1,6 @@
 // 扩展random
 import {Random} from 'mockjs';
-
+import {v1} from 'node-uuid';
 Random.extend({
 
 	cityId(data) {
@@ -21,7 +21,9 @@ Random.extend({
 		return Random.natural(20, 70)
 	},
 	uuid() {
-		return Random.character()
+		let uniqueId = v1();
+		console.log(uniqueId);
+		return uniqueId;
 	},
 	useTime() {
 		return Random.date('yyyy-MM-dd HH:mm:ss')

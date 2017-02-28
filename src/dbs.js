@@ -12,14 +12,14 @@ if (DB) {
 }
 
 // 数据库打开或创建成功
-req.onsuccess = (e) => {
-	if (e) {
-		req.db = e.target.result;
-		// 初始化数据库(注意，在第一次创建db的时候, 是不能调用createObjectStore方法的, 因为方法会处在update事务中，需要在update里面调用)
-		// initDataBase(req.db);
-		doDb(req.db);
-	}
-}
+// req.onsuccess = (e) => {
+// 	if (e) {
+// 		req.db = e.target.result;
+// 		// 初始化数据库(注意，在第一次创建db的时候, 是不能调用createObjectStore方法的, 因为方法会处在update事务中，需要在update里面调用)
+// 		// initDataBase(req.db);
+// 		doDb(req.db);
+// 	}
+// }
 
 req.onerror = (e) => {
 	console.log('error');
@@ -41,15 +41,12 @@ req.onupgradeneeded = (e) => {
 function initDataBase(db) {
 	// 创建对象存储空间
 	// sid是主键
-	let objectStore = db.createObjectStore(DB_CONF.dbNm, {keyPath: 'sid'});
+	let objectStore = db.createObjectStore(DB_CONF.dbNm, {keyPath: 'id'});
 	// 创建索引
-	// mobile是唯一
-	objectStore.createIndex('mobile', 'mobile', {unique: true});
-	// 增加字段
-	objectStore.add({
-		sid: '1',
-		mobile: '18178976546'
-	});
+	objectStore.createIndex('id', 'id', {unique: true});
+	objectStore.createIndex('title', 'title', {unique: false});
+	objectStore.createIndex('content', 'content', {unique: false});
+	objectStore.createIndex('isRead', 'isRead', {unique: false});
 	doDb(db);
 }
 
@@ -57,3 +54,5 @@ function initDataBase(db) {
 function doDb(db) {
 	// console.log(db.objectStore);
 }
+
+export default req;
